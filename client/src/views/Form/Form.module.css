@@ -1,0 +1,60 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+  
+  button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+  
+  .estrellas {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .estrellas label {
+    font-weight: normal;
+    font-size: 1.2rem;
+  }
+  
+  .estrellas input[type="radio"] {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .estrellas input[type="radio"]::before {
+    content: "★";
+    color: #ccc;
+    font-size: 1.5rem;
+  }
+  
+  .estrellas input[type="radio"]:checked::before {
+    color: #0077cc;
+  }
+  
