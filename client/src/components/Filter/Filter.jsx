@@ -21,8 +21,8 @@ export default function Filter() {
   }
 
   const handleActivity = (e) => {
-    const result = countriesf.filter(c => c.activities[0] !== undefined)
-    dispatch(filterByActivity(result, e.target.value))
+    // const result = countriesf.filter(c => c.activities[0] !== undefined)
+    dispatch(filterByActivity(allActivities, e.target.value, countries, allActivities))
   }
 
   return (
