@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 200px;
 }
 
 .input {
@@ -24,7 +24,7 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
     width: 40px;
     height: 40px;
     display: flex;

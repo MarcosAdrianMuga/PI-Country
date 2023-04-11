@@ -1,25 +1,40 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #333;
-    background-image: url("https://cdn.discordapp.com/attachments/1093240783831846977/1093659007824171128/landing_background.jpg");
-  }
-  
-  .button {
-    background-color: #4CAF50;
-    border: none;
-    color: #fff;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("./world-map-wallpaper-3554x1999_53.jpg");
+}
+
+h1 {
+  font: caption;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #a1acba;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  font: caption;
+  font-size: 1.5rem;
+  color: #a1acba;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.button {
+  background-color: #F5E5D5;
+  border: none;
+  color: #253D5B;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #F2D2B2;
+}

@@ -1,12 +1,15 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
-// import { createActivity } from "../../redux/actions";
 import { useSelector } from "react-redux";
 import validate from "./validate";
 import axios from 'axios'
 
 export default function Form() {
   const allCountries = useSelector((state) => state.allCountries);
+  const ordenarCountry = allCountries.sort((a,b)=>{
+    return a.name.localeCompare(b.name)
+  })
+
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
@@ -46,7 +49,6 @@ export default function Form() {
     } else {
        e.preventDefault()
     }
-   
   };
 
   const handleChange = (e) => {
@@ -65,7 +67,7 @@ export default function Form() {
   };
 
   return (
-    <form>
+    <form className={styles.form}>
       <div>
         <label>Nombre:</label>
         <input onChange={handleChange} name="name" type="text" value={form.name} />
@@ -119,7 +121,7 @@ export default function Form() {
         </div>
       </div>
       <div>
-        <label>Duracion:</label>
+        <label>Duracion: </label>  Horas:
         <input
           name="durationHours"
           type="number"
@@ -127,7 +129,7 @@ export default function Form() {
           value={form.duration}
           onChange={handleChange}
         />{" "}
-        horas
+        Minutos:
         <input
           name="durationMinutes"
           type="number"
@@ -136,7 +138,7 @@ export default function Form() {
           value={form.durationMinutes}
           onChange={handleChange}
         />{" "}
-        minutos
+       
       </div>
       <div>
         <label>Temporada:</label>
@@ -154,7 +156,7 @@ export default function Form() {
           <option key="" value="">
             -- Seleccionar pais/es --
           </option>
-          {allCountries.map((u) => {
+          {ordenarCountry.map((u) => {
             return (
               <option key={u.name} value={u.name}>
                 {u.name}

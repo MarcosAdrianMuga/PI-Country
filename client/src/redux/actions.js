@@ -6,6 +6,7 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
 export const FILTER_BY_LETTER = "FILTER_BY_LETTER"
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY"
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY"
 
 export const getAllCountry = () => {
   return (dispatch) => {
@@ -20,7 +21,6 @@ export const getAllActivities = () => {
   return (dispatch) => {
     axios.get("http://localhost:3001/activities").then((res) => {
       const { data } = res;
-      console.log(data);
       dispatch({ type: GET_ALL_ACTIVITIES, payload: data})
     })
   }
@@ -67,6 +67,11 @@ export const filterByLetter = (orden, state, todos) => {
 }
 
 export const createActivity = (form) => {
-
   return{type: CREATE_ACTIVITY, payload: form}
+}
+
+export const filterByActivity = (activity, indica) => {
+  // if(indica === "Todos"){
+  //   const result = activity.filter(c => c)
+  // }
 }

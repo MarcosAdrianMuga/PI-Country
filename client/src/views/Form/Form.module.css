@@ -1,20 +1,32 @@
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px; 
+  margin: auto; 
+  height: 75vh; 
+  padding: 1rem; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  background-color: rgb(161, 189, 213);
+}
+
+
   
-  label {
-    font-weight: bold;
-  }
-  
-  input, select {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid gray;
-  }
+label {
+  font: caption;
+  font-weight: bold;
+  margin-bottom: 1rem; /* Agregar margen inferior */
+}
+
+input, select {
+  font: caption;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-bottom: 1rem; /* Agregar margen inferior */
+}
+
   
   button {
     padding: 0.5rem;
@@ -31,6 +43,7 @@ form {
   }
   
   .estrellas {
+    justify-content: center;
     display: flex;
     gap: 0.5rem;
   }

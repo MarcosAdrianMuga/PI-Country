@@ -9,13 +9,6 @@
     text-align: center;
   }
   
-  .title h2 {
-    color: #1a1a1a;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
   .cards {
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +16,7 @@
   }
   
   .card {
-    background-color: #fff;
+    background-color: #aeaeae;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;

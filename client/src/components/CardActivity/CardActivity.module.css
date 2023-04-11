@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px;
+    background-color: #b5a58c;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: azure;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  
+  .info b {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 1rem 0;
+  }
+  

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import style from "./Detail.module.css";
@@ -7,33 +8,36 @@ import CardActivity from "../../components/CardActivity/CardActivity";
 export default function Detail() {
   const [state, setState] = useState({
     detail: {},
+    activities: []
   });
-
-  // const activities = useSelector((state) => state.allActivities)
-  // console.log(activities);
-  const [activity, setActivity] = useState({
-    activities: {}
-  })
-  const { actId } = useParams();
+  const allAcitivities = useSelector((state) => state.allActivities)
+ 
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`http://localhost:3001/countries/${id}`).then((res) => {
       const { data } = res;
       data.population = data.population.toLocaleString();
-      setState({ detail: data });
+      setState({ detail: data, activities: filteredActivities });
     });
   }, [id]);
 
-  const { name, image, continent, capital, subregion, area, population } =
-    state.detail;
-  
-  useEffect(() => {
-    axios.get("http://localhost:3001/activities").then((res) => {
-      const { data } = res;
-      setActivity({ activities: data})
-    })
-  },[actId])
+  const result = []
+  const filteredActivities = allAcitivities.map((a) => a.countries.forEach(element => {
+    if(element.id === id) {
+      const { name, difficulty, duration, season, id } = a 
+      result.push({
+        name,
+        difficulty,
+        duration,
+        season,
+        id
+      })
+    }
+  }))
+  console.log(result);
+
+  const { name, image, continent, capital, subregion, area, population } = state.detail;
 
   return (
     <div className={style.container}>
@@ -60,7 +64,7 @@ export default function Detail() {
             <b>Población:</b> {population}
           </p>
           <div>
-            <CardActivity activities={activity}/>
+            {result.length ?<CardActivity result={result}/> : null}
           </div>
         </div>
       </div>

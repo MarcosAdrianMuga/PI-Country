@@ -7,7 +7,6 @@ export default function CardsContainer(props) {
   return (
     <div className={style.container}>
       <div className={style.title}>
-        <h2>Countries</h2>
       </div>
       <div className={style.cards} path="/detail">
         {countries.map((c, index) => {

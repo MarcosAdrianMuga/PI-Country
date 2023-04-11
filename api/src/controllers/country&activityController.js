@@ -3,7 +3,7 @@ const { Op } = require("sequelize")
 
 
 const getAllContries = async () => {
-    const databaseContry = await Country.findAll()
+    const databaseContry = await Country.findAll({include: Activity})
 
     return [...databaseContry]
 }
@@ -36,7 +36,7 @@ const createActivity = async (name, difficulty, duration, season, country) => {
 }
 
 const getAllActivity = async () => {
-    const DataBaseActivity = await Activity.findAll()
+    const DataBaseActivity = await Activity.findAll({include: Country})
 
     return [...DataBaseActivity]
 }
