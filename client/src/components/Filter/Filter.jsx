@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByContinent, filterByLetter, filterByActivity } from "../../redux/actions";
+import { filterByContinent, filterByLetter, filterByPopulation, filterByActivity } from "../../redux/actions";
 import styles from "./Filter.module.css"
 export default function Filter() {
   const allCountries = useSelector((state) => state.allCountries)
@@ -18,6 +18,10 @@ export default function Filter() {
 
   const handleAlfa = (e) => {
     dispatch(filterByLetter(e.target.value , countries, allCountries))
+  }
+
+  const handlePobla = (e) => {
+    dispatch(filterByPopulation(e.target.value , countries, allCountries))
   }
 
   const handleActivity = (e) => {
@@ -46,7 +50,13 @@ export default function Filter() {
       <option value="za">Z a la A</option>
     </select>
   </div>
-
+  <div>
+    <select onChange={handlePobla}>
+      <option value="">-- Filtrar por población --</option>
+      <option value="as">Ascendente</option>
+      <option value="de">Descendente</option>
+    </select>
+  </div>
   <div>
     <select onChange={handleActivity}>
       <option key="" value="">-- Filtrar por actividades --</option>

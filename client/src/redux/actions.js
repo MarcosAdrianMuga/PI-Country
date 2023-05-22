@@ -7,6 +7,8 @@ export const FILTER_BY_LETTER = "FILTER_BY_LETTER";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+export const FILTER_BY_POPULATION = "FILTER_BY_POPULATION";
+export const PAGINATION = "PAGINATION"
 
 export const getAllCountry = () => {
   return (dispatch) => {
@@ -65,31 +67,56 @@ export const filterByLetter = (orden, state, todos) => {
   }
 };
 
-export const createActivity = (form) => {
-  return { type: CREATE_ACTIVITY, payload: form };
-};
+export const filterByPopulation = (orden, state, todos) => {
+  if(orden === "as") {
+    const result = [...state].sort((a, b) => (a.population > b.population ? 1 : -1))
+    return { type: FILTER_BY_POPULATION, payload: { result, todos }}
+  } else if(orden === "de") {
+    const result = [...state].sort((a, b) => (a.population > b.population ? -1 : 1))
+    return { type: FILTER_BY_POPULATION, payload: { result, todos }}
+  } else {
+    const result = state;
+    return { type: FILTER_BY_POPULATION, payload: { result, todos }}
+  }
+}
 
 export const filterByActivity = (activity, target, state, allActivities) => {
   if (target === "Todos") {
-    const result = allActivities
-    const allCountries = []
-    for(let i=0; i < result.length; i++){
-      for(let k=0; k < result[i].countries.length; k++){
-        allCountries.push(result[i].countries[k])
+    const result = allActivities;
+    const allCountries = [];
+    for (let i = 0; i < result.length; i++) {
+      for (let k = 0; k < result[i].countries.length; k++) {
+        allCountries.push(result[i].countries[k]);
       }
     }
-    const duplica2 = []
-    const countries = []
+    const duplica2 = [];
+    const countries = [];
     allCountries.forEach((c) => {
-      if(!duplica2.includes(c.id)){
-        duplica2.push(c.id)
-        countries.push(c)
+      if (!duplica2.includes(c.id)) {
+        duplica2.push(c.id);
+        countries.push(c);
       }
-    })
-    return {type: FILTER_BY_ACTIVITY, payload: { countries, state } }
+    });
+    return { type: FILTER_BY_ACTIVITY, payload: { countries, state } };
   } else {
     const result = activity.filter((c) => c.name === target);
     const { countries } = result[0];
     return { type: FILTER_BY_ACTIVITY, payload: { countries, state } };
   }
 };
+
+export const pagination = (current, direction) => {
+  switch(direction){
+    case "primero":
+      return { type: PAGINATION, payload: 0}
+    case "anterior":
+      current --
+      return { type: PAGINATION, payload: current}
+    case "siguiente":
+      current ++
+      return { type: PAGINATION, payload: current}
+    case "ultimo":
+      return { type: PAGINATION, payload: current}
+    default:
+  }
+}

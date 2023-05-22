@@ -6,6 +6,7 @@ import axios from 'axios'
 
 export default function Form() {
   const allCountries = useSelector((state) => state.allCountries);
+  const activities = useSelector((state) => state.allActivities)
   const ordenarCountry = allCountries.sort((a,b)=>{
     return a.name.localeCompare(b.name)
   })
@@ -25,7 +26,7 @@ export default function Form() {
   };
   
   const submitHandler = (e) => {
-    const validado = validate(form)
+    const validado = validate(form, activities)
     if(validado){
       const countriesId = []
       for(let i = 0; i < form.countries.length; i++){
@@ -56,8 +57,12 @@ export default function Form() {
     const value = e.target.value;
 
     if (property === "countries") {
-      if (form.countries.includes(value)) {
-        alert(`El pais ${value} ya ah sido seleccionado`);
+      if (form.countries.includes(value) || value === "") {
+        if(form.countries.includes(value)) {
+          alert(`El pais ${value} ya ah sido seleccionado`);
+        } else {
+          console.log("no se agrega");
+        }
       } else {
         setForm({ ...form, countries: [...form.countries, value] });
       }
