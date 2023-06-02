@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Países</h1>
+      <h1 className={styles.title}>Countries</h1>
       <CardsContainer countries={paginas} className={styles.cardsContainer}/>
       <Pagination paginas={paginas.length -1}/>
     </div>

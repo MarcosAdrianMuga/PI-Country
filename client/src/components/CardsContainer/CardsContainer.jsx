@@ -15,7 +15,7 @@ export default function CardsContainer(props) {
             <Card key={index} country={c} detailID={c.id} />
           ))
         ) : (
-          <p>No hay países para mostrar</p>
+          <p>No countries to display.</p>
         )}
       </div>
     </div>

@@ -12,37 +12,37 @@ const validate = (form, activities) => {
     return ayuda
  }
     if (!form.name) {
-      alert("Debe ingresar el nombre") 
+      alert("You must enter the name") 
       return false
     } else if(existe(activities , form.name)) {
-      alert("La actividad ya existe")
+      alert("The activity already exists")
       return false
     } else if(form.name.length > 50) {
-      alert("Nombre demasiado largo")
+      alert("Name too long")
       return false
     }
     if (!form.difficulty) {
-      alert("Debe indicar la dificultad")
+      alert("You must indicate the difficulty")
       return false
     }
     if(form.durationMinutes > 59 || form.durationMinutes < 0){
-        alert("Minutos incorrectos")
+        alert("Incorrect minutes")
         return false
     }
     if(form.durationHours < 0){
-      alert("Duracion incorrecta")
+      alert("Incorrect duration")
       return false
     }
     if (!form.durationHours || !form.durationMinutes) {
-      alert("Debe ingresar la duración")
+      alert("You must enter the duration")
       return false  
     }
     if (!form.season) {
-      alert("Debe ingresar en que temporada se realiza la actividad")
+      alert("You must enter the season")
       return false
     }
     if (!form.countries || form.countries[0] === undefined || form.countries[0] === '') {
-      alert("Debe seleccionar al menos un pais")
+      alert("You must select at least one country")
       return false
     }
     return true

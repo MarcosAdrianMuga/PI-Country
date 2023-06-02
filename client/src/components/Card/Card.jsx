@@ -10,7 +10,7 @@ const Card = (props) => {
            
             <img src={image} alt="bandera"></img>
             <p>{name}</p>
-            <p>Poblacion: {population}</p>
+            <p>Population: {population}</p>
             <p>{continent}</p>
          
         </div>

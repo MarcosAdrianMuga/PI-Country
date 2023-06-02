@@ -13,7 +13,7 @@ export default function Detail() {
   const allAcitivities = useSelector((state) => state.allActivities)
  
   const { id } = useParams();
-
+  
   useEffect(() => {
     axios.get(`http://localhost:3001/countries/${id}`).then((res) => {
       const { data } = res;
@@ -46,22 +46,21 @@ export default function Detail() {
       </div>
       <div className={style.infoContainer}>
         <h1>{name}</h1>
-        <h5>También puedes encontrarlo por su id "{id}"</h5>
         <div className={style.info}>
           <p>
-            <b>Continente:</b> {continent}
+            <b>Continent:</b> {continent}
           </p>
           <p>
             <b>Capital:</b> {capital}
           </p>
           <p>
-            <b>Subregión:</b> {subregion}
+            <b>Subregion:</b> {subregion==="No se encontro la subregion" ? "Subregion not found" : subregion}
           </p>
           <p>
-            <b>Área:</b> {area}
+            <b>Area:</b> {area}
           </p>
           <p>
-            <b>Población:</b> {population}
+            <b>Population:</b> {population}
           </p>
           <div>
             {result.length ?<CardActivity result={result}/> : null}

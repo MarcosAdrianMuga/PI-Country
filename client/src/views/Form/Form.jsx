@@ -45,8 +45,7 @@ export default function Form() {
         "season": season,
         "country": countriesId
       })
-      e.preventDefault()
-      alert("La actividad se creo correctamente")
+      alert("The activity was created successfully")
     } else {
        e.preventDefault()
     }
@@ -59,7 +58,7 @@ export default function Form() {
     if (property === "countries") {
       if (form.countries.includes(value) || value === "") {
         if(form.countries.includes(value)) {
-          alert(`El pais ${value} ya ah sido seleccionado`);
+          alert(`Country ${value} has already been selected`);
         } else {
           console.log("no se agrega");
         }
@@ -74,13 +73,12 @@ export default function Form() {
   return (
     <form className={styles.form}>
       <div>
-        <label>Nombre:</label>
+        <label>Name: </label>
         <input onChange={handleChange} name="name" type="text" value={form.name} />
       </div>
       <div>
         <label htmlFor="dificultad">
-          Selecciona la dificultad (ten en cuenta que 1 seria muy fácil y 5 muy
-          difícil):
+        Select the difficulty (keep in mind that 1 is very easy and 5 very difficult):
         </label>
         <div className={styles.estrellas}>
           <label>1.</label>
@@ -126,7 +124,7 @@ export default function Form() {
         </div>
       </div>
       <div>
-        <label>Duracion: </label>  Horas:
+        <label>Duration: </label>  Hours:
         <input
           name="durationHours"
           type="number"
@@ -134,7 +132,7 @@ export default function Form() {
           value={form.duration}
           onChange={handleChange}
         />{" "}
-        Minutos:
+        Minutes:
         <input
           name="durationMinutes"
           type="number"
@@ -146,20 +144,20 @@ export default function Form() {
        
       </div>
       <div>
-        <label>Temporada:</label>
+        <label>Season:</label>
         <select name="season" onChange={handleChange}>
-          <option>-- Seleccionar temporada --</option>
-          <option value="summer">Verano</option>
-          <option value="sutumn">Otoño</option>
-          <option value="winter">Invierno</option>
-          <option value="spring">Primavera</option>
+          <option>-- Select season --</option>
+          <option value="summer">Summer</option>
+          <option value="sutumn">Sutumn</option>
+          <option value="winter">Winter</option>
+          <option value="spring">Spring</option>
         </select>
       </div>
       <div>
-        <label>Paises en donde se realiza la actividad:</label>
+        <label>Countries where the activity is performed:</label>
         <select name="countries" onChange={handleChange}>
           <option key="" value="">
-            -- Seleccionar pais/es --
+            -- Select countries --
           </option>
           {ordenarCountry.map((u) => {
             return (
@@ -178,7 +176,7 @@ export default function Form() {
   ))}
       </div>
       <button onClick={submitHandler} type="submit">
-        Crear actividad!
+      Create activity!
       </button>
     </form>
   );
