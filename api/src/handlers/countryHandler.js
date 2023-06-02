@@ -5,7 +5,7 @@ const getAllContriesHandler = async (req, res) => {
     try {
         if(name) {
         const result = name ? await getContryByName(name) : await getAllContries()
-        if(!result.length) throw { message: `No existe un pais llamado '${name}'`}
+        if(!result.length) throw { message: `There is no country called '${name}'`}
         res.status(200).json(result)
     }
     else{
