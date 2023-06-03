@@ -15,7 +15,7 @@ export default function Detail() {
   const { id } = useParams();
   
   useEffect(() => {
-    axios.get(`http://localhost:3001/countries/${id}`).then((res) => {
+    axios.get(`/countries/${id}`).then((res) => {
       const { data } = res;
       data.population = data.population.toLocaleString();
       setState({ detail: data, activities: filteredActivities });

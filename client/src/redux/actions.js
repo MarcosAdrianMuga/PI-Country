@@ -12,7 +12,7 @@ export const PAGINATION = "PAGINATION"
 
 export const getAllCountry = () => {
   return (dispatch) => {
-    axios.get("http://localhost:3001/countries").then((res) => {
+    axios.get("/countries").then((res) => {
       const { data } = res;
       dispatch({ type: GET_ALL_COUNTRY, payload: data });
     });
@@ -21,7 +21,7 @@ export const getAllCountry = () => {
 
 export const getAllActivities = () => {
   return (dispatch) => {
-    axios.get("http://localhost:3001/activities").then((res) => {
+    axios.get("/activities").then((res) => {
       const { data } = res;
       dispatch({ type: GET_ALL_ACTIVITIES, payload: data });
     });
@@ -31,7 +31,7 @@ export const getAllActivities = () => {
 export const getCountryByName = (name) => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/countries?name=${name}`)
+      .get(`/countries?name=${name}`)
       .then((res) => {
         const { data } = res;
         dispatch({

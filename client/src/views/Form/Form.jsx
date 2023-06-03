@@ -38,7 +38,7 @@ export default function Form() {
       const {name, difficulty, durationHours, durationMinutes, season} = form
       const duration = durationHours.toString() + "." + durationMinutes.toString()
     
-      axios.post("http://localhost:3001/activities", {
+      axios.post("/activities", {
         "name": name,
         "difficulty": difficulty,
         "duration": duration,
